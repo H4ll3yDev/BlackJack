@@ -1,15 +1,7 @@
 package partes;
-package partes;
 
-import dao.DAOCarta;
-import dao.DAOFicha;
-import dao.DAOJugador;
-import dao.DAOPartida;
-import dao.DAOResultado;
-import modelo.Carta;
-import modelo.Ficha;
-import modelo.Jugador;
-import modelo.Partida;
+import dao.*;
+import modelo.*;
 
 import java.util.ArrayList;
 import java.util.Collections;

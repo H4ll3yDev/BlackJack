@@ -1,6 +1,6 @@
 package dao;
 
-import modelo.Carta;
+import modelo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

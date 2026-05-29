@@ -1,6 +1,6 @@
 package controlador;
 
-import partes.Menu;
+import partes.*;
 
 public class main {
 

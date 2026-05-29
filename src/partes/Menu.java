@@ -1,6 +1,6 @@
 package partes;
 
-import modelo.Jugador;
+import modelo.*;
 import java.util.Scanner;
 
 /*Menu

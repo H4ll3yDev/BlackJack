@@ -1,6 +1,6 @@
 package partes;
 
-import dao.DAOJugador;
+import dao.*;
 import modelo.Jugador;
 import java.util.Scanner;
 
