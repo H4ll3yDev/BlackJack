@@ -16,10 +16,10 @@ public class Jugador {
     //Constructor completo (desde BBDD)
     public Jugador(int id, String nombreUsuario, String contrasena, int saldo, int partidasGanadas) {
     	
-        this.id              = id;
-        this.nombreUsuario   = nombreUsuario;
-        this.contrasena      = contrasena;
-        this.saldo           = saldo;
+        this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.saldo = saldo;
         this.partidasGanadas = partidasGanadas;
         
     }
@@ -27,9 +27,9 @@ public class Jugador {
     //Constructor para registro nuevo
     public Jugador(String nombreUsuario, String contrasena) {
     	
-        this.nombreUsuario   = nombreUsuario;
-        this.contrasena      = contrasena;
-        this.saldo           = 1000;   // saldo inicial por defecto
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.saldo = 1000;   // saldo inicial por defecto
         this.partidasGanadas = 0;
         
     }
@@ -46,6 +46,7 @@ public class Jugador {
     public String getNombreUsuario() {
     	return nombreUsuario;
     	}
+    
     public void setNombreUsuario(String nombreUsuario) {
     	this.nombreUsuario = nombreUsuario;
     	}
@@ -53,6 +54,7 @@ public class Jugador {
     public String getContrasena() {
     	return contrasena;
     	}
+    
     public void   setContrasena(String contrasena) {
     	this.contrasena = contrasena;
     	}
@@ -60,6 +62,7 @@ public class Jugador {
     public int getSaldo() {
     	return saldo;
     	}
+    
     public void setSaldo(int saldo) {
     	this.saldo = saldo;
     	}
@@ -67,12 +70,14 @@ public class Jugador {
     public int getPartidasGanadas() {
     	return partidasGanadas;
     	}
+    
     public void setPartidasGanadas(int partidasGanadas) {
     	this.partidasGanadas = partidasGanadas;
     	}
 
     @Override
     public String toString() {
+    	
         return "Jugador [id=" + id
                 + ", nombre=" + nombreUsuario
                 + ", saldo=" + saldo

@@ -29,7 +29,7 @@ public class Menu {
     private void mostrarBienvenida() {
         System.out.println("╔══════════════════════════════════╗");
         System.out.println("║    ♠ ♥  BLACKJACK CASINO  ♣ ♦    ║");
-        System.out.println("║   Harley Mena, Marcos Torregrosa  ║");
+        System.out.println("║   Harley Mena, Marcos Torregrosa ║");
         System.out.println("╚══════════════════════════════════╝");
     }
 
