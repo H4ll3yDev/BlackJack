@@ -24,14 +24,6 @@ public class Menu {
         sc.close();
         
     }
-    
-    // Bienvenida 
-    private void mostrarBienvenida() {
-        System.out.println("╔══════════════════════════════════╗");
-        System.out.println("║    ♠ ♥  BLACKJACK CASINO  ♣ ♦    ║");
-        System.out.println("║   Harley Mena, Macos Torregrosa  ║");
-        System.out.println("╚══════════════════════════════════╝");
-    }
 
     // Menú de acceso: registrarse o hacer login 
     private void menuAcceso() {
