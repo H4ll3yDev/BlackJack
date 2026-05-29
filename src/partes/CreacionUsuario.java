@@ -1,7 +1,7 @@
 package partes;
 
-import dao.DAOJugador;
-import modelo.Jugador;
+import dao.*;
+import modelo.*;
 import java.util.Scanner;
 
 /*CreacionUsuario

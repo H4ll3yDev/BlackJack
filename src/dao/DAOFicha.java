@@ -1,6 +1,6 @@
 package dao;
 
-import modelo.Ficha;
+import modelo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
