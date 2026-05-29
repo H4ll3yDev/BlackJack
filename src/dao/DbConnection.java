@@ -20,6 +20,7 @@ public class DbConnection {
             props.put("password", "");
 
             instance = DriverManager.getConnection(JDBC_BDD_URL, props);
+            
         }
 
         return instance;

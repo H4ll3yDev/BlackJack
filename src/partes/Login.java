@@ -17,11 +17,8 @@ public class Login {
         this.sc = sc;
     }
 
-
     //  FLUJO PRINCIPAL
-
-    /*Solicita nombre y contraseña al usuario.
-     @return el Jugador si las credenciales son correctas, null si no.*/
+    /*Solicita nombre y contraseña al usuario. @return el Jugador si las credenciales son correctas, null si no.*/
     
     public Jugador ejecutar() {
 
@@ -35,12 +32,13 @@ public class Login {
         Jugador jugador = jugadorDAO.login(nombre, Seguridad.hashMD5(pass));
 
         if (jugador == null) {
+        	
             System.out.println("  Credenciales incorrectas.");
             return null;
+            
         }
 
-        System.out.println("  ¡Bienvenido de nuevo, " + jugador.getNombreUsuario()
-                + "! Saldo: " + jugador.getSaldo() + " fichas.");
+        System.out.println("  ¡Bienvenido de nuevo, " + jugador.getNombreUsuario() + "! Saldo: " + jugador.getSaldo() + " fichas.");
         return jugador;
     }
 }

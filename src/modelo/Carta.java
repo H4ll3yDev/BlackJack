@@ -9,14 +9,17 @@ public class Carta {
 
 	// Constructor vacío
 	public Carta() {
+		
 	}
 
 	// Constructor completo
 	public Carta(int id, String valor, String palo, int puntos) {
+		
 		this.id = id;
 		this.valor = valor;
 		this.palo = palo;
 		this.puntos = puntos;
+		
 	}
 
 	// Getters y Setters

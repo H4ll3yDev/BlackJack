@@ -9,100 +9,108 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DAOCarta {
 
-    private static final String SQL_BUSCAR_POR_ID =
-            "SELECT id, valor, palo, puntos FROM carta WHERE id = ?";
+	private static final String SQL_BUSCAR_POR_ID = "SELECT id, valor, palo, puntos FROM carta WHERE id = ?";
 
-    private static final String SQL_BUSCAR_TODAS =
-            "SELECT id, valor, palo, puntos FROM carta ORDER BY id";
+	private static final String SQL_BUSCAR_TODAS = "SELECT id, valor, palo, puntos FROM carta ORDER BY id";
 
-    private static final String SQL_BUSCAR_POR_PALO =
-            "SELECT id, valor, palo, puntos FROM carta WHERE palo = ? ORDER BY id";
-    
-   
-    public Carta buscarPorId(int id) {
+	private static final String SQL_BUSCAR_POR_PALO = "SELECT id, valor, palo, puntos FROM carta WHERE palo = ? ORDER BY id";
 
-        Carta carta = null;
+	public Carta buscarPorId(int id) {
 
-        try {
-            Connection con = DbConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_POR_ID);
-            ps.setInt(1, id);
+		Carta carta = null;
 
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                carta = mapearFila(rs);
-            }
+		try {
 
-            rs.close();
-            ps.close();
+			Connection con = DbConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_POR_ID);
+			ps.setInt(1, id);
 
-        } catch (SQLException e) {
-            System.err.println("CartaDAO.buscarPorId: " + e.getMessage());
-        }
+			ResultSet rs = ps.executeQuery();
 
-        return carta;
-    }
+			if (rs.next()) {
 
-   
-    public List<Carta> buscarTodas() {
+				carta = mapearFila(rs);
 
-        List<Carta> cartas = new ArrayList<>();
+			}
 
-        try {
-            Connection con = DbConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_TODAS);
+			rs.close();
+			ps.close();
 
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cartas.add(mapearFila(rs));
-            }
+		} catch (SQLException e) {
 
-            rs.close();
-            ps.close();
+			System.err.println("CartaDAO.buscarPorId: " + e.getMessage());
 
-        } catch (SQLException e) {
-            System.err.println("CartaDAO.buscarTodas: " + e.getMessage());
-        }
+		}
 
-        return cartas;
-    }
+		return carta;
+	}
 
-   
-    public List<Carta> buscarPorPalo(String palo) {
+	public List<Carta> buscarTodas() {
 
-        List<Carta> cartas = new ArrayList<>();
+		List<Carta> cartas = new ArrayList<>();
 
-        try {
-            Connection con = DbConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_POR_PALO);
-            ps.setString(1, palo);
+		try {
 
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cartas.add(mapearFila(rs));
-            }
+			Connection con = DbConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_TODAS);
 
-            rs.close();
-            ps.close();
+			ResultSet rs = ps.executeQuery();
 
-        } catch (SQLException e) {
-            System.err.println("CartaDAO.buscarPorPalo: " + e.getMessage());
-        }
+			while (rs.next()) {
 
-        return cartas;
-    }
+				cartas.add(mapearFila(rs));
 
-    //Auxiliar: mapea una fila del ResultSet a Carta
+			}
 
-    private Carta mapearFila(ResultSet rs) throws SQLException {
-        return new Carta(
-                rs.getInt("id"),
-                rs.getString("valor"),
-                rs.getString("palo"),
-                rs.getInt("puntos")
-        );
-    }
-    }
+			rs.close();
+			ps.close();
+
+		} catch (SQLException e) {
+
+			System.err.println("CartaDAO.buscarTodas: " + e.getMessage());
+
+		}
+
+		return cartas;
+	}
+
+	public List<Carta> buscarPorPalo(String palo) {
+
+		List<Carta> cartas = new ArrayList<>();
+
+		try {
+
+			Connection con = DbConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement(SQL_BUSCAR_POR_PALO);
+			ps.setString(1, palo);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				cartas.add(mapearFila(rs));
+
+			}
+
+			rs.close();
+			ps.close();
+
+		} catch (SQLException e) {
+
+			System.err.println("CartaDAO.buscarPorPalo: " + e.getMessage());
+
+		}
+
+		return cartas;
+	}
+
+	// Auxiliar: mapea una fila del ResultSet a Carta
+
+	private Carta mapearFila(ResultSet rs) throws SQLException {
+
+		return new Carta(rs.getInt("id"), rs.getString("valor"), rs.getString("palo"), rs.getInt("puntos"));
+
+	}
+}

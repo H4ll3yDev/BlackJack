@@ -4,10 +4,10 @@ import modelo.*;
 import java.util.Scanner;
 
 /*Menu
-
  Muestra el menú principal y coordina la navegación entre las distintas
  secciones de la aplicación.
  Depende de: Login, CreacionUsuario, Juego.*/
+
 public class Menu {
 
     private final Scanner sc = new Scanner(System.in);
@@ -16,12 +16,13 @@ public class Menu {
     private Jugador jugadorActivo = null;
 
     //  INICIO
-
     public void iniciar() {
+    	
         mostrarBienvenida();
         menuAcceso();
         menuPrincipal();
         sc.close();
+        
     }
 
     // Menú de acceso: registrarse o hacer login 
@@ -42,14 +43,17 @@ public class Menu {
             String opcion = sc.nextLine().trim();
 
             if (opcion.equals("1")) {
+            	
                 jugadorActivo = new CreacionUsuario(sc).ejecutar();
                 accedido = (jugadorActivo != null);
 
             } else if (opcion.equals("2")) {
+            	
                 jugadorActivo = new Login(sc).ejecutar();
                 accedido = (jugadorActivo != null);
 
             } else {
+            	
                 System.out.println("  Opción no válida.");
             }
         }
@@ -75,20 +79,24 @@ public class Menu {
             String opcion = sc.nextLine().trim();
 
             if (opcion.equals("1")) {
+            	
                 new Juego(sc, jugadorActivo).ejecutar();
 
             } else if (opcion.equals("2")) {
+            	
                 mostrarInstrucciones();
 
             } else if (opcion.equals("3")) {
+            	
                 new Juego(sc, jugadorActivo).mostrarRanking();
 
             } else if (opcion.equals("4")) {
+            	
                 salir = true;
-                System.out.println("\n  ¡Hasta la próxima, "
-                        + jugadorActivo.getNombreUsuario() + "!");
+                System.out.println("\n  ¡Hasta la próxima, " + jugadorActivo.getNombreUsuario() + "!");
 
             } else {
+            	
                 System.out.println("  Opción no válida.");
             }
         }
@@ -96,6 +104,7 @@ public class Menu {
 
     // Instrucciones
     private void mostrarInstrucciones() {
+    	
         System.out.println("\n╔════════════════════════════════════════════╗");
         System.out.println("║            INSTRUCCIONES BLACKJACK         ║");
         System.out.println("╠════════════════════════════════════════════╣");
@@ -117,9 +126,10 @@ public class Menu {
 
     // Bienvenida 
     private void mostrarBienvenida() {
+    	
         System.out.println("╔══════════════════════════════════╗");
         System.out.println("║    ♠ ♥  BLACKJACK CASINO  ♣ ♦    ║");
-        System.out.println("║   Harley Mena, Macos Torregrosa  ║");
+        System.out.println("║   Harley Mena, Marcos Torregrosa  ║");
         System.out.println("╚══════════════════════════════════╝");
     }
 }

@@ -6,33 +6,41 @@ import java.util.List;
 
 public class Partida {
 
-    private int            id;
-    private int            numJugadores;
-    private Timestamp      fecha;
-    private List<Jugador>  jugadores;   // jugadores que participan en esta partida
+    private int id;
+    private int numJugadores;
+    private Timestamp fecha;
+    private List<Jugador> jugadores;   // jugadores que participan en esta partida
 
     //Constructor vacío
     public Partida() {
+    	
         this.jugadores = new ArrayList<>();
+        
     }
 
     //Constructor completo (desde BBDD)
     public Partida(int id, int numJugadores, Timestamp fecha) {
-        this.id           = id;
+    	
+        this.id = id;
         this.numJugadores = numJugadores;
-        this.fecha        = fecha;
-        this.jugadores    = new ArrayList<>();
+        this.fecha = fecha;
+        this.jugadores = new ArrayList<>();
+        
     }
 
     //Constructor para nueva partida (sin id aún)
     public Partida(int numJugadores) {
+    	
         this.numJugadores = numJugadores;
-        this.jugadores    = new ArrayList<>();
+        this.jugadores = new ArrayList<>();
+        
     }
 
     //Gestión de jugadores en la partida
     public void agregarJugador(Jugador jugador) {
+    	
         jugadores.add(jugador);
+        
     }
 
     //Getters y Setters
@@ -66,8 +74,6 @@ public class Partida {
 
     @Override
     public String toString() {
-        return "Partida [id=" + id
-                + ", numJugadores=" + numJugadores
-                + ", fecha=" + fecha + "]";
+        return "Partida [id=" + id + ", numJugadores=" + numJugadores + ", fecha=" + fecha + "]";
     }
 }

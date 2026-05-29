@@ -23,8 +23,10 @@ public class Juego {
     private final Jugador jugadorActivo;
 
     public Juego(Scanner sc, Jugador jugadorActivo) {
+    	
         this.sc            = sc;
         this.jugadorActivo = jugadorActivo;
+        
     }
 
     
@@ -34,7 +36,9 @@ public class Juego {
 
         // 1. Pedir apuesta
         int apuesta = pedirApuesta();
+        
         if (apuesta <= 0) {
+        	
             return;   // el jugador canceló o no tiene saldo
         }
 
@@ -69,26 +73,32 @@ public class Juego {
             System.out.println("  Total: " + total);
 
             if (total == 21) {
+            	
                 System.out.println("  ¡BLACKJACK!");
                 jugadorPlanta = true;
 
             } else if (total > 21) {
+            	
                 System.out.println("  ¡Te has pasado de 21!");
                 jugadorPasado = true;
 
             } else {
+            	
                 System.out.print("  ¿Pides carta (P) o plantas (L)? ");
                 String accion = sc.nextLine().trim().toUpperCase();
 
                 if (accion.equals("P")) {
+                	
                     Carta nueva = sacarCarta(mazo);
                     manoJugador.add(nueva);
                     System.out.println("  Has sacado: " + nueva);
 
                 } else if (accion.equals("L")) {
+                	
                     jugadorPlanta = true;
 
                 } else {
+                	
                     System.out.println("  Opción no válida. Escribe P o L.");
                 }
             }
@@ -96,13 +106,16 @@ public class Juego {
 
         // 6. Turno de la banca (solo si el jugador no se pasó)
         if (!jugadorPasado) {
+        	
             System.out.println("\n  ── TURNO DE LA BANCA ──");
             mostrarMano("Mano de la banca", manoBanca);
 
             while (calcularTotal(manoBanca) < 17) {
+            	
                 Carta nueva = sacarCarta(mazo);
                 manoBanca.add(nueva);
                 System.out.println("  La banca saca: " + nueva);
+                
             }
         }
 
@@ -114,9 +127,8 @@ public class Juego {
         guardarResultados(partida, apuesta, totalJugador, jugadorGana);
     }
 
-    // 
+    
     //  RANKING  (llamado desde Menu)
-    // 
     public void mostrarRanking() {
 
         List<String[]> ranking = resultadoDAO.obtenerRanking();
@@ -143,41 +155,53 @@ public class Juego {
         List<Ficha> fichas = fichaDAO.buscarTodas();
 
         System.out.println("\n  ── REALIZA TU APUESTA ──");
-        System.out.println("  Saldo disponible: " + jugadorActivo.getSaldo() + " fichas");
-        System.out.println("  Fichas disponibles:");
+        System.out.println("Saldo disponible: " + jugadorActivo.getSaldo() + " fichas");
+        System.out.println("Fichas disponibles:");
 
         for (int i = 0; i < fichas.size(); i++) {
+        	
             System.out.println("    " + (i + 1) + ". " + fichas.get(i));
+            
         }
-        System.out.println("    0. Cancelar");
-        System.out.print("  Elige una ficha: ");
+        System.out.println("0. Cancelar");
+        System.out.print("Elige una ficha: ");
 
         int     apuesta      = 0;
         boolean apuestaValida = false;
 
         while (!apuestaValida) {
+        	
             try {
+            	
                 int opcion = Integer.parseInt(sc.nextLine().trim());
 
                 if (opcion == 0) {
+                	
                     apuestaValida = true;
 
                 } else if (opcion >= 1 && opcion <= fichas.size()) {
+                	
                     int valor = fichas.get(opcion - 1).getValor();
 
                     if (valor > jugadorActivo.getSaldo()) {
+                    	
                         System.out.println("  No tienes suficientes fichas.");
                         System.out.print("  Elige otra: ");
+                        
                     } else {
+                    	
                         apuesta      = valor;
                         apuestaValida = true;
+                        
                     }
 
                 } else {
+                	
                     System.out.print("  Opción no válida. Elige de nuevo: ");
                 }
 
             } catch (NumberFormatException e) {
+            	
                 System.out.print("  Escribe un número: ");
             }
         }
@@ -192,40 +216,48 @@ public class Juego {
         boolean jugadorGana;
 
         if (jugadorPasado) {
+        	
             jugadorGana = false;
             System.out.println("\n  La banca gana. Te has pasado.");
 
         } else if (totalBanca > 21) {
+        	
             jugadorGana = true;
             System.out.println("\n  ¡Ganas! La banca se ha pasado de 21.");
 
         } else if (totalJugador > totalBanca) {
+        	
             jugadorGana = true;
             System.out.println("\n  ¡Ganas! Tu total (" + totalJugador
                     + ") supera a la banca (" + totalBanca + ").");
 
         } else if (totalJugador == totalBanca) {
+        	
             jugadorGana = false;
             System.out.println("\n  Empate (" + totalJugador + "). La banca gana en empate.");
 
         } else {
+        	
             jugadorGana = false;
             System.out.println("\n  La banca gana. Su total (" + totalBanca
                     + ") supera al tuyo (" + totalJugador + ").");
+            
         }
 
         return jugadorGana;
     }
 
-    private void guardarResultados(Partida partida, int apuesta,
-                                    int puntuacion, boolean jugadorGana) {
+    private void guardarResultados(Partida partida, int apuesta, int puntuacion, boolean jugadorGana) {
 
         int nuevoSaldo = jugadorActivo.getSaldo();
 
         if (jugadorGana) {
+        	
             nuevoSaldo += apuesta;
             jugadorDAO.incrementarVictorias(jugadorActivo.getId());
+            
         } else {
+        	
             nuevoSaldo -= apuesta;
         }
 
@@ -234,19 +266,13 @@ public class Juego {
 
         System.out.println("  Saldo actual: " + nuevoSaldo + " fichas.");
 
-        resultadoDAO.insertar(
-                partida.getId(),
-                jugadorActivo.getId(),
-                puntuacion,
-                apuesta,
-                jugadorGana
-        );
+        resultadoDAO.insertar(partida.getId(), jugadorActivo.getId(), puntuacion, apuesta, jugadorGana);
     }
 
     //  UTILIDADES
-
     // Saca la primera carta del mazo y la elimina de él. 
     private Carta sacarCarta(List<Carta> mazo) {
+    	
         return mazo.remove(0);
     }
 
@@ -257,14 +283,19 @@ public class Juego {
         int ases  = 0;
 
         for (Carta carta : mano) {
+        	
             total += carta.getPuntos();
+            
             if (carta.getValor().equals("A")) {
+            	
                 ases++;
             }
         }
 
         int i = 0;
+        
         while (total > 21 && i < ases) {
+        	
             total -= 10;
             i++;
         }
@@ -274,8 +305,11 @@ public class Juego {
 
     // Muestra las cartas de una mano con su total. 
     private void mostrarMano(String etiqueta, List<Carta> mano) {
+    	
         System.out.print("  " + etiqueta + ": ");
+        
         for (Carta c : mano) {
+        	
             System.out.print(c + "  ");
         }
         System.out.println("→ Total: " + calcularTotal(mano));

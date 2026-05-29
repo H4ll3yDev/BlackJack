@@ -2,8 +2,8 @@ package modelo;
 
 public class Ficha {
 
-    private int    id;
-    private int    valor;   
+    private int id;
+    private int valor;   
     private String color;   
 
     //Constructor vacío
@@ -13,21 +13,26 @@ public class Ficha {
 
     //Constructor completo
     public Ficha(int id, int valor, String color) {
-        this.id    = id;
+    	
+        this.id = id;
         this.valor = valor;
         this.color = color;
+        
     }
 
     //Constructor sin id (uso en lógica de juego)
     public Ficha(int valor, String color) {
+    	
         this.valor = valor;
         this.color = color;
+        
     }
 
     //Getters y Setters
     public int getId() {
     	return id;
     	}
+    
     public void setId(int id) {
     	this.id = id;
     	}
