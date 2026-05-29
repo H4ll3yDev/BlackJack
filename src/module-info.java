@@ -1,4 +1,4 @@
-module blackjack {
+module BlackJack {
 	
 	requires java.sql;
 	requires java.base;
