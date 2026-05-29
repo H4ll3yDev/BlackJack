@@ -24,4 +24,4 @@ public class DbConnection {
 
 	        return instance;
 	    }
-	}
+}
