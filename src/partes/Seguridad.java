@@ -14,6 +14,7 @@ public class Seguridad {
 
     /*Devuelve el hash MD5 en hexadecimal de la cadena recibida.
      Se usa para almacenar y comparar contraseñas.*/
+    
     public static String hashMD5(String texto) {
         try {
             MessageDigest md   = MessageDigest.getInstance("MD5");
