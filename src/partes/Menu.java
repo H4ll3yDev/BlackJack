@@ -24,6 +24,14 @@ public class Menu {
         sc.close();
         
     }
+    
+    // Bienvenida 
+    private void mostrarBienvenida() {
+        System.out.println("╔══════════════════════════════════╗");
+        System.out.println("║    ♠ ♥  BLACKJACK CASINO  ♣ ♦    ║");
+        System.out.println("║   Harley Mena, Marcos Torregrosa  ║");
+        System.out.println("╚══════════════════════════════════╝");
+    }
 
     // Menú de acceso: registrarse o hacer login 
     private void menuAcceso() {
@@ -122,14 +130,5 @@ public class Menu {
         System.out.println("║ La banca pide cartas hasta llegar a 17.    ║");
         System.out.println("║ En caso de empate gana la banca.           ║");
         System.out.println("╚════════════════════════════════════════════╝");
-    }
-
-    // Bienvenida 
-    private void mostrarBienvenida() {
-    	
-        System.out.println("╔══════════════════════════════════╗");
-        System.out.println("║    ♠ ♥  BLACKJACK CASINO  ♣ ♦    ║");
-        System.out.println("║   Harley Mena, Marcos Torregrosa  ║");
-        System.out.println("╚══════════════════════════════════╝");
     }
 }
