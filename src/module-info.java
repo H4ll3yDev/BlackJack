@@ -4,6 +4,8 @@
 /**
  * 
  */
-module blackkack {
+module blackjack {
+	
 	requires java.sql;
+	
 }
