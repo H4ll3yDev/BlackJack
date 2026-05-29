@@ -1,5 +1,4 @@
 package partes;
-package partes;
 
 import dao.DAOCarta;
 import dao.DAOFicha;
@@ -16,20 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Juego
- * ─────────────────────────────────────────────────────────────────────────
- * Lógica de una partida de Blackjack.
- *
- * REGLAS IMPLEMENTADAS:
- *   - El jugador pide cartas hasta que plante o se pase de 21.
- *   - La banca pide cartas mientras tenga menos de 17.
- *   - El As vale 11; si el total supera 21 pasa a valer 1.
- *   - Blackjack natural (21 con 2 cartas) gana directamente.
- *
- * NOTA: No se usa break dentro de bucles (requisito del proyecto).
- * ─────────────────────────────────────────────────────────────────────────
- */
+//Juego
 public class Juego {
 
     // DAOs 
@@ -158,9 +144,7 @@ public class Juego {
         System.out.println("╚═══╩══════════════════╩══════════╩═══════╩═══════╝");
     }
 
-    // 
     //  APUESTA
-    //
     private int pedirApuesta() {
 
         List<Ficha> fichas = fichaDAO.buscarTodas();
@@ -268,12 +252,12 @@ public class Juego {
 
     //  UTILIDADES
 
-    /** Saca la primera carta del mazo y la elimina de él. */
+    // Saca la primera carta del mazo y la elimina de él. 
     private Carta sacarCarta(List<Carta> mazo) {
         return mazo.remove(0);
     }
 
-    /** Calcula el total de una mano ajustando el As si hace falta. */
+    // Calcula el total de una mano ajustando el As si hace falta. 
     private int calcularTotal(List<Carta> mano) {
 
         int total = 0;
@@ -295,7 +279,7 @@ public class Juego {
         return total;
     }
 
-    /** Muestra las cartas de una mano con su total. */
+    // Muestra las cartas de una mano con su total. 
     private void mostrarMano(String etiqueta, List<Carta> mano) {
         System.out.print("  " + etiqueta + ": ");
         for (Carta c : mano) {
