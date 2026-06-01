@@ -61,6 +61,7 @@ public class Juego {
 
         // 5. Turno del jugador
         System.out.println("\n  ── TURNO DE " + jugadorActivo.getNombreUsuario().toUpperCase() + " ──");
+        System.out.println();
         mostrarMano("Tu mano", manoJugador);
         System.out.println("  Carta visible de la banca: " + manoBanca.get(0));
 
@@ -70,28 +71,28 @@ public class Juego {
         while (!jugadorPasado && !jugadorPlanta) {
 
             int total = calcularTotal(manoJugador);
-            System.out.println("  Total: " + total);
+            System.out.println("Total: " + total);
 
             if (total == 21) {
             	
-                System.out.println("  ¡BLACKJACK!");
+                System.out.println("¡BLACKJACK!");
                 jugadorPlanta = true;
 
             } else if (total > 21) {
             	
-                System.out.println("  ¡Te has pasado de 21!");
+                System.out.println("¡Te has pasado de 21!");
                 jugadorPasado = true;
 
             } else {
             	
-                System.out.print("  ¿Pides carta (P) o plantas (L)? ");
+                System.out.print("¿Pides carta (P) o te plantas (L)? ");
                 String accion = sc.nextLine().trim().toUpperCase();
 
                 if (accion.equals("P")) {
                 	
                     Carta nueva = sacarCarta(mazo);
                     manoJugador.add(nueva);
-                    System.out.println("  Has sacado: " + nueva);
+                    System.out.println("Has sacado: " + nueva);
 
                 } else if (accion.equals("L")) {
                 	
@@ -99,7 +100,7 @@ public class Juego {
 
                 } else {
                 	
-                    System.out.println("  Opción no válida. Escribe P o L.");
+                    System.out.println("Opción no válida. Escribe P o L.");
                 }
             }
         }
@@ -166,7 +167,7 @@ public class Juego {
         System.out.println("0. Cancelar");
         System.out.print("Elige una ficha: ");
 
-        int     apuesta      = 0;
+        int apuesta = 0;
         boolean apuestaValida = false;
 
         while (!apuestaValida) {
@@ -190,7 +191,7 @@ public class Juego {
                         
                     } else {
                     	
-                        apuesta      = valor;
+                        apuesta = valor;
                         apuestaValida = true;
                         
                     }
