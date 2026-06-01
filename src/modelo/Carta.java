@@ -53,10 +53,19 @@ public class Carta {
 
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
-	}
-
+	}	
+	
 	@Override
 	public String toString() {
-		return "[" + valor + " de " + palo + " | " + puntos + " pts]";
+	    return  "\n┌─────────┐\n" +
+	            String.format("│ %-2s %-2s   │\n", valor, palo) +
+	            "│         │\n" +
+	            "│         │\n" +
+	            String.format("│    %s    │\n", palo) +
+	            "│         │\n" +
+	            "│         │\n" +
+	            String.format("│    %-2s %-2s│\n", palo, valor) +
+	            "└─────────┘";
 	}
+	
 }
