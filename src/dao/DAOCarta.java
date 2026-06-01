@@ -31,7 +31,7 @@ public class DAOCarta {
 
 			if (rs.next()) {
 
-				carta = mapearFila(rs);
+			carta = mapearFila(rs);
 
 			}
 
@@ -40,11 +40,12 @@ public class DAOCarta {
 
 		} catch (SQLException e) {
 
-			System.err.println("CartaDAO.buscarPorId: " + e.getMessage());
+		System.err.println("CartaDAO.buscarPorId: " + e.getMessage());
 
 		}
 
-		return carta;
+	return carta;
+	
 	}
 
 	public List<Carta> buscarTodas() {

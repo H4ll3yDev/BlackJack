@@ -3,10 +3,6 @@ package partes;
 import modelo.*;
 import java.util.Scanner;
 
-/*Menu
- Muestra el menú principal y coordina la navegación entre las distintas
- secciones de la aplicación.
- Depende de: Login, CreacionUsuario, Juego.*/
 
 public class Menu {
 

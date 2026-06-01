@@ -86,26 +86,26 @@ INSERT INTO ficha (valor, color) VALUES
 -- Baraja completa: 52 cartas (4 palos x 13 valores)
 INSERT INTO carta (valor, palo, puntos) VALUES
 -- CORAZONES
-('A','Corazones',11),('2','Corazones',2), ('3','Corazones',3),
-('4','Corazones',4), ('5','Corazones',5), ('6','Corazones',6),
-('7','Corazones',7), ('8','Corazones',8), ('9','Corazones',9),
-('10','Corazones',10),('J','Corazones',10),('Q','Corazones',10),
-('K','Corazones',10),
+('A','♥',11),('2','♥',2), ('3','♥',3),
+('4','♥',4), ('5','♥',5), ('6','♥',6),
+('7','♥',7), ('8','♥',8), ('9','♥',9),
+('10','♥',10),('J','♥',10),('Q','♥',10),
+('K','♥',10),
 -- DIAMANTES
-('A','Diamantes',11),('2','Diamantes',2), ('3','Diamantes',3),
-('4','Diamantes',4), ('5','Diamantes',5), ('6','Diamantes',6),
-('7','Diamantes',7), ('8','Diamantes',8), ('9','Diamantes',9),
-('10','Diamantes',10),('J','Diamantes',10),('Q','Diamantes',10),
-('K','Diamantes',10),
+('A','♦',11),('2','♦',2), ('3','♦',3),
+('4','♦',4), ('5','♦',5), ('6','♦',6),
+('7','♦',7), ('8','♦',8), ('9','♦',9),
+('10','♦',10),('J','♦',10),('Q','♦',10),
+('K','♦',10),
 -- TREBOLES
-('A','Treboles',11), ('2','Treboles',2),  ('3','Treboles',3),
-('4','Treboles',4),  ('5','Treboles',5),  ('6','Treboles',6),
-('7','Treboles',7),  ('8','Treboles',8),  ('9','Treboles',9),
-('10','Treboles',10),('J','Treboles',10), ('Q','Treboles',10),
-('K','Treboles',10),
+('A','♣',11), ('2','♣',2),  ('3','♣',3),
+('4','♣',4),  ('5','♣',5),  ('6','♣',6),
+('7','♣',7),  ('8','♣',8),  ('9','♣',9),
+('10','♣',10),('J','♣',10), ('Q','♣',10),
+('K','♣',10),
 -- PICAS
-('A','Picas',11),    ('2','Picas',2),     ('3','Picas',3),
-('4','Picas',4),     ('5','Picas',5),     ('6','Picas',6),
-('7','Picas',7),     ('8','Picas',8),     ('9','Picas',9),
-('10','Picas',10),   ('J','Picas',10),    ('Q','Picas',10),
-('K','Picas',10);
+('A','♠',11),    ('2','♠',2),     ('3','♠',3),
+('4','♠',4),     ('5','♠',5),     ('6','♠',6),
+('7','♠',7),     ('8','♠',8),     ('9','♠',9),
+('10','♠',10),   ('J','♠',10),    ('Q','♠',10),
+('K','♠',10);
