@@ -12,10 +12,10 @@ import java.util.Scanner;
 public class Juego {
 
     // DAOs 
-    private final DAOCarta     cartaDAO     = new DAOCarta();
-    private final DAOFicha     fichaDAO     = new DAOFicha();
-    private final DAOJugador   jugadorDAO   = new DAOJugador();
-    private final DAOPartida   partidaDAO   = new DAOPartida();
+    private final DAOCarta cartaDAO = new DAOCarta();
+    private final DAOFicha fichaDAO = new DAOFicha();
+    private final DAOJugador jugadorDAO = new DAOJugador();
+    private final DAOPartida partidaDAO = new DAOPartida();
     private final DAOResultado resultadoDAO = new DAOResultado();
 
     // Dependencias
@@ -24,7 +24,7 @@ public class Juego {
 
     public Juego(Scanner sc, Jugador jugadorActivo) {
     	
-        this.sc            = sc;
+        this.sc = sc;
         this.jugadorActivo = jugadorActivo;
         
     }
