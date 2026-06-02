@@ -9,11 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PartidaDAO
- * Operaciones BBDD sobre la tabla 'partida'.
- * Se crea un registro por cada ronda que los jugadores disputan.
- */
+//Operaciones BBDD sobre la tabla 'partida'.
+//Se crea un registro por cada ronda que los jugadores disputan.
+ 
 public class DAOPartida {
 
     //SQL

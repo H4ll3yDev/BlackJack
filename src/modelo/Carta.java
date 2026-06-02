@@ -3,7 +3,7 @@ package modelo;
 public class Carta {
 
 	private int id;
-	private String valor; // 'A','2','3',...,'10','J','Q','K'
+	private String valor; // 'A','2','3',...'J','Q','K'
 	private String palo; // 'Corazones','Diamantes','Treboles','Picas'
 	private int puntos; // valor numérico en Blackjack
 

@@ -40,8 +40,6 @@ public class Partida {
     public void agregarJugador(Jugador jugador) {
     	
         jugadores.add(jugador);
-        jugadores.add(jugador);
-        jugadores.add(jugador);
 
     }
 
