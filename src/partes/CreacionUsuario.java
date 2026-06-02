@@ -4,11 +4,7 @@ import dao.*;
 import modelo.*;
 import java.util.Scanner;
 
-/*CreacionUsuario
-
- Gestiona el flujo de registro de un nuevo jugador.
- Comprueba que el nombre no esté en uso y persiste el nuevo registro.
- Devuelve el Jugador creado o null si el proceso falla.*/
+//CreacionUsuario
 
 public class CreacionUsuario {
 
@@ -22,7 +18,8 @@ public class CreacionUsuario {
 
     //  FLUJO PRINCIPAL
 
-    /*Solicita nombre y contraseña, valida y persiste el nuevo jugador. @return el Jugador recién creado, o null si el registro falla.*/
+    //Solicita nombre y contraseña, valida y persiste el nuevo jugador.
+     //@return el Jugador recién creado, o null si el registro falla.
     
     public Jugador ejecutar() {
 
