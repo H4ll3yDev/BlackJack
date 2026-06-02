@@ -20,7 +20,7 @@ public class Ficha {
         
     }
 
-    //Constructor sin id (uso en lógica de juego)
+    //Constructor sin id
     public Ficha(int valor, String color) {
     	
         this.valor = valor;
@@ -54,6 +54,6 @@ public class Ficha {
 
     @Override
     public String toString() {
-        return "Ficha [" + color + " | " + valor + " €]";
+        return "Ficha " + color + " " + valor + "€";
     }
 }

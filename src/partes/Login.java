@@ -4,9 +4,6 @@ import dao.*;
 import modelo.Jugador;
 import java.util.Scanner;
 
-/*Login
- Gestiona el flujo de inicio de sesión de un jugador existente.
- Devuelve el Jugador autenticado o null si las credenciales son erróneas.*/
 
 public class Login {
 
@@ -17,8 +14,9 @@ public class Login {
         this.sc = sc;
     }
 
-    //  FLUJO PRINCIPAL
-    /*Solicita nombre y contraseña al usuario. @return el Jugador si las credenciales son correctas, null si no.*/
+   
+    /*Solicita nombre y contraseña al usuario.
+     @return el Jugador si las credenciales son correctas, null si no.*/
     
     public Jugador ejecutar() {
 

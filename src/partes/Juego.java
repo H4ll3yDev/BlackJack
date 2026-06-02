@@ -85,22 +85,22 @@ public class Juego {
 
             } else {
             	
-                System.out.print("¿Pides carta (P) o te plantas (L)? ");
+                System.out.print("  ¿Pides carta (C) o plantas (P)? ");
                 String accion = sc.nextLine().trim().toUpperCase();
 
-                if (accion.equals("P")) {
+                if (accion.equals("C")) {
                 	
                     Carta nueva = sacarCarta(mazo);
                     manoJugador.add(nueva);
                     System.out.println("Has sacado: " + nueva);
 
-                } else if (accion.equals("L")) {
+                } else if (accion.equals("P")) {
                 	
                     jugadorPlanta = true;
 
                 } else {
                 	
-                    System.out.println("Opción no válida. Escribe P o L.");
+                    System.out.println("  Opción no válida. Escribe C o P.");
                 }
             }
         }
@@ -134,7 +134,7 @@ public class Juego {
 
         List<String[]> ranking = resultadoDAO.obtenerRanking();
 
-        System.out.println("\n╔══════════════════════════════════════════════════╗");
+        System.out.println("\n╔═════════════════════════════════════════════════╗");
         System.out.println("║                 RANKING GLOBAL                  ║");
         System.out.println("╠═══╦══════════════════╦══════════╦═══════╦═══════╣");
         System.out.printf("║%-3s║%-18s║%-10s║%-7s║%-7s║%n",
@@ -161,11 +161,11 @@ public class Juego {
 
         for (int i = 0; i < fichas.size(); i++) {
         	
-            System.out.println("    " + (i + 1) + ". " + fichas.get(i));
+            System.out.println("\n  " + (i + 1) + ". " + fichas.get(i));
             
         }
-        System.out.println("0. Cancelar");
-        System.out.print("Elige una ficha: ");
+        System.out.println("\n  0. Cancelar");
+        System.out.print("\nElige una ficha: ");
 
         int apuesta = 0;
         boolean apuestaValida = false;
@@ -212,18 +212,20 @@ public class Juego {
 
     //  LÓGICA DE RESULTADO
     
-    private boolean determinarGanador(int totalJugador, int totalBanca,
-                                       boolean jugadorPasado) {
+    private boolean determinarGanador(int totalJugador, int totalBanca,boolean jugadorPasado) {
+    	
         boolean jugadorGana;
 
         if (jugadorPasado) {
         	
             jugadorGana = false;
+            
             System.out.println("\n  La banca gana. Te has pasado.");
 
         } else if (totalBanca > 21) {
         	
             jugadorGana = true;
+            
             System.out.println("\n  ¡Ganas! La banca se ha pasado de 21.");
 
         } else if (totalJugador > totalBanca) {

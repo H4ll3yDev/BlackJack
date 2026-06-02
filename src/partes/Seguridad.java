@@ -3,17 +3,13 @@ package partes;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/*
- Seguridad
- Métodos de seguridad compartidos por las clases del paquete partes.*/
 
 public class Seguridad {
 
     // Clase de utilidades: no se instancia.
     private Seguridad() {}
 
-    /*Devuelve el hash MD5 en hexadecimal de la cadena recibida.
-     Se usa para almacenar y comparar contraseñas.*/
+    //Devuelve el hash MD5 en hexadecimal de la cadena recibida.
     public static String hashMD5(String texto) {
     	
         try {
